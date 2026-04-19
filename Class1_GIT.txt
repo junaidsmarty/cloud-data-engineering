@@ -1,0 +1,15 @@
+git clone 
+git status -- shows status whether your folder is repo or not
+git init -- new folder as a repo on git
+git add . -- places all files in staging 
+git commit -- commits the staged file into git 
+git remote add origin (repo link) -- connects git local to git online repo
+git push -u origin main -- pushes on git online your local file finally
+git pull -- all the latest data from github live to github desktop
+
+
+
+working repository ---->  stagging directory ----->  local repo   ----->  git repo
+  (local)            		(add)                 (commit)            (git push)
+
+
