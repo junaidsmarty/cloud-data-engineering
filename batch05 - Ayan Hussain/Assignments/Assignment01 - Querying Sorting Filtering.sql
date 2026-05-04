@@ -14,9 +14,9 @@
 -- ============================================================
 
 -- Write your query below:
-
-
-
+select first_name,last_name,city,phone 
+from sales.customers 
+where state='ca' and phone is not null
 
 -- ============================================================
 --  Question 2 — ORDER BY (Multiple Columns)
@@ -28,7 +28,9 @@
 
 -- Write your query below:
 
-
+select product_id, product_name, model_year,list_price 
+from production.products 
+order by model_year desc ,list_price asc
 
 
 -- ============================================================
@@ -42,11 +44,16 @@
 
 -- Part a:
 
+select top 5
+product_name,list_price from production.products 
+order by list_price desc
 
 -- Part b:
 
-
-
+select top 5 percent
+* from production.products 
+order by list_price asc
+--Row Count : 17
 
 -- ============================================================
 --  Question 4 — OFFSET & FETCH (Pagination)
@@ -60,13 +67,25 @@
 
 -- Page 1:
 
+select product_name,list_price 
+from production.products
+order by list_price desc
+offset 0 rows
+fetch next 10 rows only
 
 -- Page 2:
-
+select product_name,list_price 
+from production.products
+order by list_price desc
+offset 10 rows
+fetch next 10 rows only
 
 -- Page 3:
-
-
+select product_name,list_price 
+from production.products
+order by list_price desc
+offset 20 rows
+fetch next 10 rows only
 
 
 -- ============================================================
@@ -81,13 +100,17 @@
 -- ============================================================
 
 -- Part a:
-
+select distinct(state) from sales.customers 
+order by state 
 
 -- Part b:
+select distinct(state +' '+ city) from sales.customers 
+order by 1
 
 
 -- Part c:
-
+select count(distinct(model_year)) 
+from production.products
 
 
 
@@ -103,3 +126,7 @@
 -- ============================================================
 
 -- Write your query below:
+select * from production.products  
+where (model_year='2019' or model_year='2020') 
+and (list_price >= 500 and list_price<=1500) 
+order by list_price 
