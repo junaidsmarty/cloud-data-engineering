@@ -1,0 +1,8 @@
+cd "/d/JJ Repository/Github/SMIT/cloud-data-engineering"
+
+git status
+
+git pull origin main
+git add .
+git commit -m "Assignment done"
+git push origin main
